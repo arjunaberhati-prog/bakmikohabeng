@@ -1,1033 +1,1019 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bakmi Abeng — Resep Warisan Sejak 1962</title>
-<meta name="description" content="Bakmi Abeng. Mie tarik tangan, kuah kaldu disimmer 12 jam. Resep warisan keluarga sejak 1962." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakmi Koh Abeng — Mie Legendaris Glodok</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
 :root {
-  --ink: #1a1410;
-  --paper: #f4ede0;
-  --paper-warm: #ede2cc;
-  --red: #a8321e;
-  --red-deep: #7a1f12;
-  --gold: #c8954a;
-  --shadow: rgba(26, 20, 16, 0.12);
-  --display: 'Fraunces', serif;
-  --body: 'Manrope', sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+  --ivory:       #F8F3E8;
+  --ivory-2:     #EFE8D3;
+  --ivory-3:     #E5D9BC;
+  --mustard:     #C8981E;
+  --mustard-2:   #E2AE2A;
+  --mustard-3:   #F5D060;
+  --mustard-bg:  #FDF4D7;
+  --dark:        #1C1208;
+  --dark-2:      #2E1E08;
+  --mid:         #6B4C1A;
+  --muted:       #9E7A42;
+  --white:       #FFFDF7;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--body);
-  font-weight: 400;
-  line-height: 1.5;
+  font-family: 'Outfit', sans-serif;
+  background: var(--ivory);
+  color: var(--dark);
   overflow-x: hidden;
-  position: relative;
 }
 
-/* Paper grain texture */
-body::before {
+/* TEXTURE */
+body::after {
   content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
-  opacity: 0.15;
-  mix-blend-mode: multiply;
-  z-index: 100;
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9000; opacity: 0.5;
 }
 
-/* ============ NAV ============ */
+/* ==== NAV ==== */
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 50;
-  background: rgba(244, 237, 224, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(26, 20, 16, 0.08);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 5vw;
+  background: rgba(248,243,232,0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(200,152,30,0.15);
+  transition: box-shadow .3s;
 }
+nav.scrolled { box-shadow: 0 2px 20px rgba(28,18,8,0.08); }
 
 .logo {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 1.4rem;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  background: var(--red);
-  color: var(--paper);
-  display: grid;
-  place-items: center;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: 50%;
-  font-style: italic;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.nav-links a {
-  color: var(--ink);
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover { color: var(--red); }
-
-.nav-cta {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 0.7rem 1.4rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem; font-weight: 700;
+  letter-spacing: .04em; color: var(--dark);
   text-decoration: none;
 }
+.logo b { color: var(--mustard); font-style: italic; }
 
-.nav-cta:hover { background: var(--red); }
+.nav-right { display: flex; align-items: center; gap: 2.2rem; }
+.nav-right a {
+  font-size: .8rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--mid); transition: color .2s;
+}
+.nav-right a:hover { color: var(--mustard); }
+.nav-wa {
+  background: var(--mustard) !important;
+  color: var(--white) !important;
+  padding: .55rem 1.3rem !important;
+  border-radius: 100px;
+  transition: background .2s, transform .2s !important;
+}
+.nav-wa:hover { background: var(--dark) !important; transform: translateY(-1px); }
 
+/* ==== HERO ==== */
 .hero {
-  min-height: 100vh;
-  padding: 8rem 3rem 4rem;
+  min-height: 100svh;
+  padding: 120px 5vw 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 4rem;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
-.hero::after {
-  content: '東';
+/* big decorative circle */
+.hero::before {
+  content: '';
   position: absolute;
-  right: -2rem;
-  bottom: -2rem;
-  font-family: var(--display);
-  font-size: 28rem;
-  color: var(--red);
-  opacity: 0.04;
-  pointer-events: none;
-  line-height: 1;
-  font-weight: 700;
+  top: -20%; right: -15%;
+  width: 70vw; height: 70vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--mustard-bg) 0%, transparent 70%);
+  z-index: 0;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  animation: fadeUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
+.hero-text { position: relative; z-index: 1; }
 
 .hero-eyebrow {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--red);
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .72rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--mustard);
+  margin-bottom: 1.6rem;
+  animation: up .7s ease both;
 }
-
 .hero-eyebrow::before {
   content: '';
-  width: 30px;
-  height: 1px;
-  background: var(--red);
+  display: block; width: 28px; height: 2px;
+  background: var(--mustard);
 }
 
-.hero h1 {
-  font-family: var(--display);
-  font-size: clamp(3rem, 7vw, 6.5rem);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  margin-bottom: 2rem;
-  color: var(--ink);
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.4rem, 6vw, 6.2rem);
+  font-weight: 300; line-height: 1.03;
+  letter-spacing: -.02em;
+  color: var(--dark);
+  margin-bottom: 1.8rem;
+  animation: up .7s .08s ease both;
+}
+.hero-h1 em {
+  font-style: italic; font-weight: 600;
+  color: var(--mustard);
+}
+.hero-h1 span.line2 {
+  display: block;
+  padding-left: 3.5rem; /* indent line */
 }
 
-.hero h1 em {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--red);
-  font-variation-settings: "opsz" 144;
+.hero-p {
+  font-size: 1rem; font-weight: 300; line-height: 1.85;
+  color: var(--mid);
+  max-width: 420px; margin-bottom: 2.5rem;
+  animation: up .7s .16s ease both;
 }
 
-.hero-sub {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: rgba(26, 20, 16, 0.7);
-  max-width: 450px;
-  margin-bottom: 2.5rem;
-  font-weight: 300;
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: up .7s .24s ease both;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.btn-primary {
-  background: var(--red);
-  color: var(--paper);
-  padding: 1.1rem 2.2rem;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  text-decoration: none;
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .85rem 1.8rem;
+  font-size: .82rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; text-decoration: none;
+  border-radius: 4px; transition: all .25s; cursor: pointer;
   border: none;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  position: relative;
+}
+.btn-gold {
+  background: var(--mustard); color: var(--white);
+}
+.btn-gold:hover {
+  background: var(--dark); transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(200,152,30,.3);
+}
+.btn-outline {
+  background: transparent; color: var(--dark);
+  border: 1.5px solid rgba(28,18,8,.2);
+}
+.btn-outline:hover {
+  border-color: var(--mustard); color: var(--mustard);
+  transform: translateY(-2px);
+}
+
+.hero-pillars {
+  display: flex; gap: 0; margin-top: 3.5rem;
+  border: 1px solid var(--ivory-3); border-radius: 8px;
   overflow: hidden;
-  display: inline-block;
+  animation: up .7s .32s ease both;
 }
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: var(--red-deep);
-  transition: left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  z-index: 0;
+.pillar {
+  flex: 1; padding: 1.2rem 1rem; text-align: center;
+  border-right: 1px solid var(--ivory-3);
 }
-
-.btn-primary:hover::before { left: 0; }
-.btn-primary span { position: relative; z-index: 1; }
-
-.btn-secondary {
-  color: var(--ink);
-  text-decoration: none;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 4px;
-  transition: all 0.3s;
-}
-
-.btn-secondary:hover {
-  color: var(--red);
-  border-color: var(--red);
-}
-
-.hero-image {
-  position: relative;
-  animation: fadeIn 1.5s 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-
-.hero-image-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  display: grid;
-  place-items: center;
-}
-
-.hero-image-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 10%;
-  background: radial-gradient(circle at center, rgba(168, 50, 30, 0.15), transparent 65%);
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.hero-image-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
-  opacity: 0.2;
-  animation: rotate 60s linear infinite;
-}
-
-.noodle-img {
-  width: 90%;
-  height: 90%;
-  object-fit: contain;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 20px 40px rgba(26, 20, 16, 0.25));
-  animation: float 6s ease-in-out infinite;
-}
-
-.hero-stamp {
-  position: absolute;
-  top: 10%;
-  right: 0;
-  width: 130px;
-  height: 130px;
-  background: var(--red);
-  color: var(--paper);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  font-family: var(--display);
-  font-style: italic;
-  transform: rotate(15deg);
-  z-index: 3;
-  box-shadow: 0 8px 24px rgba(168, 50, 30, 0.3);
-}
-
-.hero-stamp span {
-  display: block;
-}
-
-.hero-stamp .num {
-  font-size: 2.2rem;
-  font-weight: 700;
+.pillar:last-child { border-right: none; }
+.pillar-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 700; color: var(--mustard);
   line-height: 1;
 }
-
-.hero-stamp .txt {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-style: normal;
-  margin-top: 0.3rem;
+.pillar-lbl {
+  font-size: .68rem; font-weight: 500; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--muted);
+  margin-top: .3rem;
 }
 
-.marquee {
-  background: var(--ink);
-  color: var(--paper);
-  padding: 1.2rem 0;
-  overflow: hidden;
-  border-top: 1px solid rgba(244, 237, 224, 0.1);
-  border-bottom: 1px solid rgba(244, 237, 224, 0.1);
+/* hero visual */
+.hero-visual {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
 }
 
-.marquee-track {
-  display: flex;
-  gap: 4rem;
+.bowl-stage {
+  position: relative;
+  width: clamp(280px, 38vw, 480px);
+  height: clamp(280px, 38vw, 480px);
+}
+
+.ring-outer {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(200,152,30,.25);
+  animation: spin 25s linear infinite;
+}
+.ring-inner {
+  position: absolute; inset: 12%;
+  border-radius: 50%;
+  border: 1px dashed rgba(200,152,30,.4);
+  animation: spin 18s linear infinite reverse;
+}
+.bowl-glow {
+  position: absolute; inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,208,96,.35) 0%, transparent 70%);
+}
+.bowl-img {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.bowl-img img {
+  width: 88%; height: 88%; object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(28,18,8,.18));
+  animation: float 5s ease-in-out infinite;
+}
+
+.chip {
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--ivory-3);
+  border-radius: 10px;
+  padding: .6rem .9rem;
+  font-size: .72rem; font-weight: 500;
+  box-shadow: 0 8px 24px rgba(28,18,8,.07);
+  display: flex; align-items: center; gap: .5rem;
+  white-space: nowrap; z-index: 2;
+}
+.chip-icon { font-size: 1rem; }
+.chip strong { display: block; font-size: .85rem; color: var(--dark); font-weight: 600; }
+.chip span { color: var(--muted); font-size: .68rem; }
+.chip-a { top: 8%; right: -8%; animation: chipfloat1 4s ease-in-out infinite; }
+.chip-b { bottom: 12%; left: -12%; animation: chipfloat2 5s ease-in-out infinite; }
+
+/* ==== TICKER ==== */
+.ticker {
+  background: var(--dark); color: var(--mustard-3);
+  padding: .75rem 0; overflow: hidden; position: relative;
+}
+.ticker-track {
+  display: flex; gap: 2.5rem;
+  animation: ticker 22s linear infinite;
   white-space: nowrap;
-  animation: marquee 30s linear infinite;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 1.6rem;
-  font-weight: 400;
 }
+.ticker-track span {
+  font-size: .73rem; font-weight: 500; letter-spacing: .14em;
+  text-transform: uppercase; flex-shrink: 0;
+}
+.sep { color: rgba(245,208,96,.3); }
 
-.marquee-track span {
-  display: flex;
+/* ==== WHY / VALUES ==== */
+.why {
+  padding: 7rem 5vw;
+  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 5rem;
   align-items: center;
-  gap: 4rem;
+}
+.why-label {
+  font-size: .72rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--mustard);
+  display: flex; align-items: center; gap: .7rem; margin-bottom: 1.4rem;
+}
+.why-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--mustard); }
+.why-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  font-weight: 400; line-height: 1.2; letter-spacing: -.01em;
+  color: var(--dark); margin-bottom: 1.4rem;
+}
+.why-h2 em { font-style: italic; font-weight: 600; color: var(--mustard); }
+.why-p { font-size: .95rem; font-weight: 300; line-height: 1.9; color: var(--mid); }
+
+.why-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--ivory-3); border-radius: 8px; overflow: hidden;
+}
+.why-card {
+  background: var(--white);
+  padding: 2rem 1.6rem;
+  transition: background .3s;
+  position: relative; overflow: hidden;
+}
+.why-card:hover { background: var(--mustard-bg); }
+.why-card-ico {
+  font-size: 1.8rem; margin-bottom: 1rem;
+}
+.why-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 700; color: var(--dark);
+  margin-bottom: .5rem;
+}
+.why-card-desc {
+  font-size: .83rem; font-weight: 300; line-height: 1.75; color: var(--mid);
+}
+.why-card-accent {
+  position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--mustard);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s cubic-bezier(.16,1,.3,1);
+}
+.why-card:hover .why-card-accent { transform: scaleX(1); }
+
+/* ==== MENU ==== */
+.menu-sec {
+  padding: 7rem 5vw;
+  background: var(--dark-2);
+  position: relative; overflow: hidden;
+}
+.menu-sec::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--mustard), var(--mustard-2), transparent);
 }
 
-.marquee-track span::after {
-  content: '✦';
-  color: var(--gold);
-  font-style: normal;
-  font-size: 1rem;
+.menu-top {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 3.5rem;
 }
+.menu-top .why-label { color: var(--mustard-2); }
+.menu-top .why-label::before { background: var(--mustard-2); }
+.menu-top .why-h2 { color: var(--ivory); margin-bottom: 0; }
 
-/* ============ STORY ============ */
-.story {
-  padding: 8rem 3rem;
+.menu-list { display: flex; flex-direction: column; gap: 2px; }
+
+.menu-row {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 6rem;
+  grid-template-columns: 2.5rem 1fr auto;
   align-items: center;
-  position: relative;
+  gap: 1.5rem;
+  padding: 1.6rem 2rem;
+  background: rgba(255,253,247,.04);
+  border-radius: 2px;
+  transition: background .25s; cursor: default;
+  position: relative; overflow: hidden;
+}
+.menu-row::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--mustard);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .45s cubic-bezier(.16,1,.3,1);
+  z-index: 0;
+}
+.menu-row:hover::before { transform: scaleX(1); }
+.menu-row > * { position: relative; z-index: 1; }
+.menu-row:hover .m-num,
+.menu-row:hover .m-name,
+.menu-row:hover .m-desc,
+.menu-row:hover .m-price { color: var(--dark) !important; }
+
+.m-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .8rem; font-style: italic;
+  color: rgba(200,152,30,.45); line-height: 1;
+  transition: color .3s;
+}
+.m-info {}
+.m-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 600;
+  color: var(--ivory); margin-bottom: .3rem;
+  transition: color .3s;
+}
+.m-desc {
+  font-size: .78rem; font-weight: 300;
+  color: rgba(248,243,232,.4); line-height: 1.6;
+  transition: color .3s;
+}
+.m-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--mustard-2); white-space: nowrap;
+  transition: color .3s;
+}
+.m-badge {
+  display: inline-block;
+  background: var(--mustard); color: var(--dark);
+  font-size: .6rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; padding: .18rem .6rem; border-radius: 100px;
+  margin-left: .6rem; vertical-align: middle;
 }
 
-.story-label {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--red);
-  margin-bottom: 1.5rem;
-}
-
-.story h2 {
-  font-family: var(--display);
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-}
-
-.story h2 em {
-  font-style: italic;
-  color: var(--red);
-  font-weight: 500;
-}
-
-.story p {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: rgba(26, 20, 16, 0.75);
-  margin-bottom: 1.5rem;
-  font-weight: 300;
-}
-
-.story-signature {
-  margin-top: 2.5rem;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 1.8rem;
-  color: var(--ink);
-}
-
-.story-signature small {
-  display: block;
-  font-family: var(--mono);
-  font-style: normal;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-top: 0.5rem;
-  color: rgba(26, 20, 16, 0.5);
-}
-
-.story-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: rgba(26, 20, 16, 0.15);
-  border: 1px solid rgba(26, 20, 16, 0.15);
-}
-
-.stat {
-  padding: 2.5rem 2rem;
-  background: var(--paper);
-  transition: background 0.4s;
-}
-
-.stat:hover { background: var(--paper-warm); }
-
-.stat-num {
-  font-family: var(--display);
-  font-size: 3.5rem;
-  font-weight: 500;
-  line-height: 1;
-  color: var(--red);
-  margin-bottom: 0.5rem;
-  font-style: italic;
-}
-
-.stat-label {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: rgba(26, 20, 16, 0.6);
-}
-
-/* ============ MENU ============ */
-.menu {
-  background: var(--ink);
-  color: var(--paper);
-  padding: 8rem 3rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.menu::before {
-  content: '麺';
-  position: absolute;
-  top: 50%;
-  left: -3rem;
-  transform: translateY(-50%);
-  font-family: var(--display);
-  font-size: 30rem;
-  color: var(--red);
-  opacity: 0.08;
-  font-weight: 700;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.menu-header {
-  text-align: center;
-  margin-bottom: 5rem;
-  position: relative;
-  z-index: 2;
-}
-
-.menu-header .story-label { color: var(--gold); }
-
-.menu-header h2 {
-  font-family: var(--display);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-
-.menu-header h2 em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.menu-grid {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.menu-item {
-  display: grid;
-  grid-template-columns: 60px 1fr auto;
-  gap: 2rem;
-  padding: 2rem 0;
-  border-bottom: 1px solid rgba(244, 237, 224, 0.15);
-  align-items: baseline;
-  transition: all 0.4s;
-  cursor: default;
-}
-
-.menu-item:hover {
-  padding-left: 1rem;
-  background: rgba(244, 237, 224, 0.03);
-}
-
-.menu-num {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--gold);
-  letter-spacing: 0.1em;
-}
-
-.menu-info h3 {
-  font-family: var(--display);
-  font-size: 1.6rem;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
-  letter-spacing: -0.01em;
-}
-
-.menu-info p {
-  font-size: 0.95rem;
-  color: rgba(244, 237, 224, 0.6);
-  line-height: 1.5;
-  font-weight: 300;
-}
-
-.menu-price {
-  font-family: var(--display);
-  font-size: 1.4rem;
-  font-style: italic;
-  color: var(--gold);
-  font-weight: 500;
-}
-
-/* ============ PROCESS ============ */
+/* ==== PROCESS ==== */
 .process {
-  padding: 8rem 3rem;
-  background: var(--paper-warm);
+  padding: 7rem 5vw;
+  background: var(--ivory-2);
+  position: relative; overflow: hidden;
+}
+.process-header { text-align: center; margin-bottom: 5rem; }
+.process-header .why-h2 { text-align: center; }
+
+.steps {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2px; background: var(--ivory-3);
+  border-radius: 8px; overflow: hidden;
+}
+.step {
+  background: var(--ivory);
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: background .3s;
   position: relative;
 }
+.step:hover { background: var(--white); }
+.step-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem; font-weight: 300; font-style: italic;
+  color: rgba(200,152,30,.15); line-height: 1;
+  margin-bottom: .5rem;
+}
+.step-ico { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--dark); margin-bottom: .8rem;
+}
+.step-desc {
+  font-size: .85rem; font-weight: 300; line-height: 1.8; color: var(--mid);
+}
+.step-bar {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: var(--mustard);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s cubic-bezier(.16,1,.3,1);
+}
+.step:hover .step-bar { transform: scaleX(1); }
 
-.process-header {
-  text-align: center;
-  margin-bottom: 5rem;
+/* ==== REVIEWS ==== */
+.reviews {
+  padding: 7rem 5vw;
+}
+.reviews-header { text-align: center; margin-bottom: 4rem; }
+.star-row {
+  display: flex; justify-content: center; gap: .3rem; margin-bottom: 1rem;
+}
+.star { color: var(--mustard); font-size: 1.2rem; }
+.reviews-avg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem; font-weight: 700; color: var(--dark);
+  line-height: 1;
+}
+.reviews-cnt {
+  font-size: .8rem; color: var(--muted); font-weight: 400;
+  margin-top: .3rem; margin-bottom: 1.5rem;
 }
 
-.process-header h2 {
-  font-family: var(--display);
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-}
-
-.process-header h2 em {
-  font-style: italic;
-  color: var(--red);
-}
-
-.process-grid {
+.reviews-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 1.5rem;
 }
 
-.process-card {
-  text-align: left;
-  position: relative;
-  padding-top: 2rem;
+/* 5th review full width */
+.reviews-grid .rev-card:nth-child(4) { grid-column: 1 / 3; }
+.reviews-grid .rev-card:nth-child(5) { grid-column: 3 / 4; }
+
+.rev-card {
+  background: var(--white);
+  border: 1px solid var(--ivory-3);
+  border-radius: 8px;
+  padding: 1.8rem;
+  transition: all .3s;
+  position: relative; overflow: hidden;
+}
+.rev-card::after {
+  content: '"';
+  position: absolute; top: .5rem; right: 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6rem; font-weight: 700;
+  color: rgba(200,152,30,.07); line-height: 1;
+  pointer-events: none;
+}
+.rev-card:hover {
+  border-color: rgba(200,152,30,.3);
+  box-shadow: 0 12px 40px rgba(200,152,30,.08);
+  transform: translateY(-4px);
+}
+.rev-stars {
+  display: flex; gap: .2rem; margin-bottom: .8rem;
+}
+.rev-stars span { color: var(--mustard); font-size: .9rem; }
+.rev-text {
+  font-size: .9rem; font-weight: 300; line-height: 1.8;
+  color: var(--mid); margin-bottom: 1.2rem; font-style: italic;
+}
+.rev-author {
+  display: flex; align-items: center; gap: .75rem;
+}
+.rev-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--mustard-bg), var(--ivory-3));
+  border: 1.5px solid rgba(200,152,30,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 700; color: var(--mustard);
+  flex-shrink: 0;
+}
+.rev-name { font-size: .85rem; font-weight: 600; color: var(--dark); }
+.rev-meta { font-size: .72rem; color: var(--muted); font-weight: 300; }
+
+.rev-platform {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  font-size: .65rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted);
+  background: var(--ivory-2); padding: .2rem .6rem; border-radius: 100px;
 }
 
-.process-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 2px;
-  background: var(--red);
-}
-
-.process-num {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 4rem;
-  color: var(--red);
-  line-height: 1;
-  margin-bottom: 1rem;
-  font-weight: 400;
-}
-
-.process-card h3 {
-  font-family: var(--display);
-  font-size: 1.6rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  letter-spacing: -0.01em;
-}
-
-.process-card p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(26, 20, 16, 0.7);
-  font-weight: 300;
-}
-
-/* ============ CTA / FOOTER ============ */
-.cta {
-  padding: 8rem 3rem;
+/* ==== CTA ==== */
+.cta-sec {
+  margin: 0 5vw 7rem;
+  background: var(--dark);
+  border-radius: 12px;
+  padding: 6rem 5vw;
   text-align: center;
-  background: var(--paper);
-  position: relative;
+  position: relative; overflow: hidden;
+}
+.cta-sec::before {
+  content: '';
+  position: absolute; top: -40%; left: -20%; right: -20%; bottom: -40%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(200,152,30,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cta-deco {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22rem; font-weight: 700; font-style: italic;
+  color: rgba(200,152,30,.03); white-space: nowrap;
+  pointer-events: none; line-height: 1;
 }
 
-.cta h2 {
-  font-family: var(--display);
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  margin-bottom: 2rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta h2 em {
-  font-style: italic;
-  color: var(--red);
-  font-weight: 500;
-}
-
-.cta-sub {
-  font-size: 1.1rem;
-  color: rgba(26, 20, 16, 0.65);
-  margin-bottom: 3rem;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 300;
-}
-
-footer {
-  background: var(--ink);
-  color: var(--paper);
-  padding: 4rem 3rem 2rem;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto 3rem;
-}
-
-.footer-brand .logo {
-  color: var(--paper);
-  margin-bottom: 1rem;
-}
-
-.footer-brand p {
-  font-size: 0.9rem;
-  color: rgba(244, 237, 224, 0.5);
-  line-height: 1.6;
-  max-width: 300px;
-  font-weight: 300;
-}
-
-.footer-col h4 {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--gold);
+.cta-inner { position: relative; z-index: 1; }
+.cta-eyebrow {
+  font-size: .72rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--mustard);
+  display: flex; align-items: center; justify-content: center; gap: .8rem;
   margin-bottom: 1.5rem;
 }
-
-.footer-col ul {
-  list-style: none;
+.cta-eyebrow::before, .cta-eyebrow::after {
+  content: ''; display: block; width: 2rem; height: 1.5px; background: var(--mustard);
 }
-
-.footer-col li {
-  margin-bottom: 0.6rem;
-  font-size: 0.9rem;
-  color: rgba(244, 237, 224, 0.7);
-  font-weight: 300;
+.cta-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+  font-weight: 300; line-height: 1.12;
+  color: var(--ivory); letter-spacing: -.02em;
+  margin-bottom: 1.2rem;
 }
-
-.footer-col a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s;
+.cta-h2 em { font-style: italic; font-weight: 600; color: var(--mustard); }
+.cta-sub {
+  font-size: 1rem; font-weight: 300; line-height: 1.8;
+  color: rgba(248,243,232,.5); max-width: 440px; margin: 0 auto 2.5rem;
 }
+.cta-info {
+  display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+  margin-top: 2.5rem; flex-wrap: wrap;
+}
+.cta-info-item {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .82rem; color: rgba(248,243,232,.45); font-weight: 300;
+}
+.cta-info-item b { color: var(--ivory); font-weight: 500; }
+.cta-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(200,152,30,.4); }
 
-.footer-col a:hover { color: var(--gold); }
-
+/* ==== FOOTER ==== */
+footer {
+  background: var(--ivory-2);
+  border-top: 1px solid var(--ivory-3);
+  padding: 4rem 5vw 2.5rem;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem; padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--ivory-3); margin-bottom: 1.8rem;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 700; color: var(--dark);
+  margin-bottom: .8rem;
+}
+.footer-logo b { color: var(--mustard); font-style: italic; }
+.footer-tagline {
+  font-size: .85rem; font-weight: 300; line-height: 1.8; color: var(--mid);
+}
+.footer-col h5 {
+  font-size: .68rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--mustard);
+  margin-bottom: 1.1rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li {
+  font-size: .83rem; font-weight: 300; color: var(--mid);
+  margin-bottom: .5rem; line-height: 1.5;
+}
+.footer-col a { color: var(--mustard); text-decoration: none; }
+.footer-col a:hover { text-decoration: underline; }
 .footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(244, 237, 224, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: rgba(244, 237, 224, 0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: .75rem; color: var(--muted);
+}
+.footer-bottom em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: .9rem;
 }
 
-/* ============ ANIMATIONS ============ */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ==== ANIMATIONS ==== */
+@keyframes up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(-2deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
 }
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
+@keyframes spin {
   to { transform: rotate(360deg); }
 }
-
-@keyframes marquee {
+@keyframes chipfloat1 {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%       { transform: translateY(-10px) rotate(2deg); }
+}
+@keyframes chipfloat2 {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50%       { transform: translateY(-8px) rotate(-2deg); }
+}
+@keyframes ticker {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to   { transform: translateX(-50%); }
 }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 7rem 1.5rem 3rem;
-    gap: 2rem;
-    text-align: left;
-  }
-  
-  .hero-stamp {
-    width: 100px;
-    height: 100px;
-    top: 0;
-    right: 1rem;
-  }
-  
-  .hero-stamp .num { font-size: 1.6rem; }
-  
-  .story, .process, .cta, .menu { padding: 5rem 1.5rem; }
-  
-  .story {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  
-  .process-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  
-  .footer-bottom {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-  
-  .menu-item {
-    grid-template-columns: 40px 1fr;
-    gap: 1rem;
-  }
-  
-  .menu-price {
-    grid-column: 2;
-    margin-top: 0.5rem;
-  }
-  
-  .marquee-track { font-size: 1.2rem; gap: 2rem; }
-  .marquee-track span { gap: 2rem; }
+/* scroll reveal */
+.sr { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
+.sr.on { opacity: 1; transform: translateY(0); }
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 820px) {
+  .nav-right a:not(.nav-wa) { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; gap: 2rem; }
+  .hero-visual { order: -1; }
+  .bowl-stage { width: 260px; height: 260px; }
+  .chip-b { left: -5%; }
+  .why { grid-template-columns: 1fr; gap: 3rem; }
+  .why-cards { grid-template-columns: 1fr; }
+  .menu-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  .steps { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .reviews-grid .rev-card:nth-child(4),
+  .reviews-grid .rev-card:nth-child(5) { grid-column: auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: .8rem; text-align: center; }
+  .cta-sec { padding: 4rem 5vw; }
+  .cta-info { gap: 1.5rem; }
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">
-    <span class="logo-mark">A</span>
-    <span>BAKMI LORD ABENG</span>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">Bakmi <b>Koh</b> Abeng</a>
+  <div class="nav-right">
+    <a href="#menu">Menu</a>
+    <a href="#ulasan">Ulasan</a>
+    <a href="#lokasi">Lokasi</a>
+    <a href="https://wa.me/6281515415252" class="nav-wa">Pesan Sekarang</a>
   </div>
-  <ul class="nav-links">
-    <li><a href="#story">Cerita</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#process">Proses</a></li>
-    <li><a href="#contact">Lokasi</a></li>
-  </ul>
-  <a href="https://wa.me/6281515415252" class="nav-cta">Pesan Sekarang</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Sejak 1962 · Resep Warisan</div>
-    <h1>Semangkuk <em>kenangan</em>,<br>diracik dengan<br>tangan.</h1>
-    <p class="hero-sub">Bakmi tarik tangan, kaldu disimmer dua belas jam, bumbu rahasia dari tiga generasi keluarga. Ini bukan sekadar mie — ini cerita yang disajikan hangat.</p>
-    <div class="hero-actions">
-      <a href="#menu" class="btn-primary"><span>Lihat Menu</span></a>
-      <a href="#story" class="btn-secondary">Cerita Kami →</a>
+<section class="hero" id="beranda">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Mie Legendaris Glodok · Est. 1962</div>
+
+    <h1 class="hero-h1">
+      Rasa yang<br>
+      <em>tak pernah</em><br>
+      <span class="line2">terlupakan.</span>
+    </h1>
+
+    <p class="hero-p">Mie tarik tangan setiap pagi. Kaldu tulang disimmer 12 jam. Bumbu rahasia tiga generasi. Bukan sekadar makan siang — ini pengalaman rasa yang selalu bikin rindu.</p>
+
+    <div class="hero-btns">
+      <a href="#menu" class="btn btn-gold">Lihat Menu ↓</a>
+      <a href="https://wa.me/6281515415252" class="btn btn-outline">Reservasi via WA</a>
+    </div>
+
+    <div class="hero-pillars">
+      <div class="pillar">
+        <div class="pillar-num">62+</div>
+        <div class="pillar-lbl">Tahun</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">12j</div>
+        <div class="pillar-lbl">Simmer Kaldu</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">3×</div>
+        <div class="pillar-lbl">Generasi</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">4.9★</div>
+        <div class="pillar-lbl">Rating</div>
+      </div>
     </div>
   </div>
-  
-  <div class="hero-image">
-    <div class="hero-image-wrap">
-      <img src="https://imgstudio.cc/images/2026/05/13/download__3_-removebg-preview.png" alt="Bakmi Ahong" class="noodle-img" />
-      <div class="hero-stamp">
+
+  <div class="hero-visual">
+    <div class="bowl-stage">
+      <div class="ring-outer"></div>
+      <div class="ring-inner"></div>
+      <div class="bowl-glow"></div>
+      <div class="bowl-img">
+        <img src="https://imgstudio.cc/images/2026/05/30/bakmi-abeng-transparan.webp" alt="Bakmi Koh Abeng">
+      </div>
+
+      <div class="chip chip-a">
+        <span class="chip-icon">🤲</span>
         <div>
-          <span class="num">62</span>
-          <span class="txt">Est.<br>Years</span>
+          <strong>Tarik Tangan</strong>
+          <span>Dibuat tiap pagi</span>
+        </div>
+      </div>
+
+      <div class="chip chip-b">
+        <span class="chip-icon">✨</span>
+        <div>
+          <strong>No MSG</strong>
+          <span>100% alami</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track">
-    <span>Mie Tarik Tangan</span>
-    <span>Kaldu 12 Jam</span>
-    <span>Resep Warisan 1962</span>
-    <span>Tiga Generasi</span>
-    <span>No MSG Tambahan</span>
-    <span>Mie Tarik Tangan</span>
-    <span>Kaldu 12 Jam</span>
-    <span>Resep Warisan 1962</span>
-    <span>Tiga Generasi</span>
-    <span>No MSG Tambahan</span>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Mie Tarik Tangan</span><span class="sep">✦</span>
+    <span>Kaldu 12 Jam</span><span class="sep">✦</span>
+    <span>Resep Warisan 1962</span><span class="sep">✦</span>
+    <span>Tiga Generasi</span><span class="sep">✦</span>
+    <span>No MSG Tambahan</span><span class="sep">✦</span>
+    <span>Glodok Jakarta</span><span class="sep">✦</span>
+    <span>Mangkuk Tiap Hari</span><span class="sep">✦</span>
+    <span>Mie Tarik Tangan</span><span class="sep">✦</span>
+    <span>Kaldu 12 Jam</span><span class="sep">✦</span>
+    <span>Resep Warisan 1962</span><span class="sep">✦</span>
+    <span>Tiga Generasi</span><span class="sep">✦</span>
+    <span>No MSG Tambahan</span><span class="sep">✦</span>
+    <span>Glodok Jakarta</span><span class="sep">✦</span>
+    <span>Mangkuk Tiap Hari</span><span class="sep">✦</span>
   </div>
 </div>
 
-<!-- STORY -->
-<section class="story" id="story">
+<!-- WHY -->
+<section class="why sr" id="tentang">
   <div>
-    <div class="story-label">— Cerita Kami</div>
-    <h2>Dari dapur kecil di sudut <em>Glodok</em>, ke mangkuk Anda.</h2>
-    <p>Tahun 1962, Koh Abeng membuka warung kecil di gang sempit Glodok. Modalnya sederhana: sebuah wok besi, panci tembaga, dan resep mie yang dibawa dari kampung halamannya di Fujian.</p>
-    <p>Enam dekade kemudian, kami masih menarik mie dengan tangan. Masih memasak kaldu selama 12 jam. Masih menjaga keseimbangan rasa yang sama persis seperti yang diajarkan kakek — karena resep terbaik adalah yang tidak pernah berubah.</p>
-    <div class="story-signature">
-      Abeng Kok
-      <small>Cucu pendiri · Pemilik generasi ketiga</small>
-    </div>
+    <div class="why-label">Kenapa Koh Abeng?</div>
+    <h2 class="why-h2">Otentisitas bukan<br><em>slogan</em>, tapi cara hidup.</h2>
+    <p class="why-p">Di sini tidak ada shortcut. Tidak ada kaldu instan. Tidak ada mie dari mesin. Setiap mangkuk yang tersaji adalah hasil kerja keras yang dimulai jauh sebelum restoran buka.</p>
   </div>
-  
-  <div class="story-stats">
-    <div class="stat">
-      <div class="stat-num">62</div>
-      <div class="stat-label">Tahun Tradisi</div>
+
+  <div class="why-cards">
+    <div class="why-card">
+      <div class="why-card-title">Mie Tarik Tangan</div>
+      <div class="why-card-desc">Setiap pagi adonan ditarik manual. Tekstur kenyal yang tidak bisa ditiru mesin apapun.</div>
+      <div class="why-card-accent"></div>
     </div>
-    <div class="stat">
-      <div class="stat-num">12h</div>
-      <div class="stat-label">Simmer Kaldu</div>
+    <div class="why-card">
+      <div class="why-card-title">Kaldu 12 Jam</div>
+      <div class="why-card-desc">Tulang pilihan, rempah segar, api kecil selama setengah hari. Itulah kedalaman rasa yang terasa.</div>
+      <div class="why-card-accent"></div>
     </div>
-    <div class="stat">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Generasi Keluarga</div>
+    <div class="why-card">
+      <div class="why-card-title">No MSG Tambahan</div>
+      <div class="why-card-desc">Rasa umami berasal dari proses alami, bukan penguat rasa buatan. Aman untuk semua keluarga.</div>
+      <div class="why-card-accent"></div>
     </div>
-    <div class="stat">
-      <div class="stat-num">1K+</div>
-      <div class="stat-label">Mangkuk Per Hari</div>
+    <div class="why-card">
+      <div class="why-card-title">Resep Warisan</div>
+      <div class="why-card-desc">Tiga generasi menjaga formula yang sama. Tidak ada yang diubah, karena memang tidak perlu.</div>
+      <div class="why-card-accent"></div>
     </div>
   </div>
 </section>
 
 <!-- MENU -->
-<section class="menu" id="menu">
-  <div class="menu-header">
-    <div class="story-label">— Sajian Pilihan</div>
-    <h2>Menu <em>signature</em></h2>
+<section class="menu-sec sr" id="menu">
+  <div class="menu-top">
+    <div>
+      <div class="why-label">Sajian Pilihan</div>
+      <h2 class="why-h2">Menu <em>Signature</em></h2>
+    </div>
+    <a href="https://wa.me/6281515415252" class="btn btn-gold">Pesan Sekarang →</a>
   </div>
-  
-  <div class="menu-grid">
-    <div class="menu-item">
-      <div class="menu-num">01</div>
-      <div class="menu-info">
-        <h3>Bakmi Ahong Spesial</h3>
-        <p>Mie tarik tangan, ayam cincang manis, pangsit goreng, sayuran segar. Versi original sejak 1962.</p>
+
+  <div class="menu-list">
+    <div class="menu-row">
+      <div class="m-num">01</div>
+      <div class="m-info">
+        <div class="m-name">Bakmi Spesial Koh Abeng <span class="m-badge">Signature</span></div>
+        <div class="m-desc">Mie tarik tangan, ayam cincang manis, pangsit goreng renyah, sawi hijau. Versi original 1962.</div>
       </div>
-      <div class="menu-price">Rp 35K</div>
+      <div class="m-price">Rp 35.000</div>
     </div>
-    
-    <div class="menu-item">
-      <div class="menu-num">02</div>
-      <div class="menu-info">
-        <h3>Bakmi Pangsit Kuah</h3>
-        <p>Mie tarik dalam kuah kaldu ayam-tulang 12 jam, pangsit udang isi penuh, daun bawang segar.</p>
+    <div class="menu-row">
+      <div class="m-num">02</div>
+      <div class="m-info">
+        <div class="m-name">Bakmi Pangsit Kuah</div>
+        <div class="m-desc">Kuah kaldu bening 12 jam, pangsit udang isi penuh, daun bawang, bawang goreng.</div>
       </div>
-      <div class="menu-price">Rp 38K</div>
+      <div class="m-price">Rp 38.000</div>
     </div>
-    
-    <div class="menu-item">
-      <div class="menu-num">03</div>
-      <div class="menu-info">
-        <h3>Bakmi Babi Cha Siu</h3>
-        <p>Cha siu panggang rumahan, kecap manis warisan, mie kuning telur tarik tangan.</p>
+    <div class="menu-row">
+      <div class="m-num">03</div>
+      <div class="m-info">
+        <div class="m-name">Bakmi Babi Cha Siu <span class="m-badge">Favorit</span></div>
+        <div class="m-desc">Cha siu panggang rumahan, kecap manis warisan generasi, mie kuning telur tarik tangan.</div>
       </div>
-      <div class="menu-price">Rp 45K</div>
+      <div class="m-price">Rp 45.000</div>
     </div>
-    
-    <div class="menu-item">
-      <div class="menu-num">04</div>
-      <div class="menu-info">
-        <h3>Bakmi Jamur Vegetarian</h3>
-        <p>Mie tarik dengan tumis jamur shitake, jamur kuping, dan sawi. Pilihan ramah vegetarian.</p>
+    <div class="menu-row">
+      <div class="m-num">04</div>
+      <div class="m-info">
+        <div class="m-name">Bakmi Jamur Vegetarian</div>
+        <div class="m-desc">Shitake, jamur kuping, sawi hijau, mie tarik. Pilihan sehat tanpa daging.</div>
       </div>
-      <div class="menu-price">Rp 32K</div>
+      <div class="m-price">Rp 32.000</div>
     </div>
-    
-    <div class="menu-item">
-      <div class="menu-num">05</div>
-      <div class="menu-info">
-        <h3>Bakmi Seafood Premium</h3>
-        <p>Udang besar, cumi, bakso ikan, dan sayuran dalam kaldu seafood kaya rempah.</p>
+    <div class="menu-row">
+      <div class="m-num">05</div>
+      <div class="m-info">
+        <div class="m-name">Bakmi Seafood Premium</div>
+        <div class="m-desc">Udang besar, cumi segar, bakso ikan dalam kaldu seafood kaya rempah pilihan.</div>
       </div>
-      <div class="menu-price">Rp 52K</div>
+      <div class="m-price">Rp 52.000</div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="process" id="process">
+<section class="process sr" id="proses">
   <div class="process-header">
-    <div class="story-label" style="text-align:center;">— Proses Kami</div>
-    <h2>Sabar adalah <em>bumbu utama</em>.</h2>
+    <div class="why-label" style="justify-content:center">Cara Kami Memasak</div>
+    <h2 class="why-h2" style="text-align:center">Sabar adalah <em>bumbu utama</em>.</h2>
   </div>
-  
-  <div class="process-grid">
-    <div class="process-card">
-      <div class="process-num">i.</div>
-      <h3>Tarik Tangan</h3>
-      <p>Setiap pagi, adonan mie ditarik dan dilipat dengan tangan — proses yang membutuhkan ketelitian, ritme, dan kesabaran. Tidak ada mesin yang menggantikan sentuhan ini.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">i.</div>
+      <span class="step-ico">🤲</span>
+      <div class="step-title">Tarik Tangan</div>
+      <div class="step-desc">Adonan mie ditarik dan dilipat setiap pagi dengan tangan. Proses yang butuh ritme, ketelitian, dan 20 tahun pengalaman.</div>
+      <div class="step-bar"></div>
     </div>
-    
-    <div class="process-card">
-      <div class="process-num">ii.</div>
-      <h3>Simmer 12 Jam</h3>
-      <p>Kaldu dibuat dari tulang ayam pilihan, daging, dan rempah-rempah, disimmer perlahan selama 12 jam penuh untuk menghasilkan rasa yang dalam dan bening.</p>
+    <div class="step">
+      <div class="step-n">ii.</div>
+      <span class="step-ico">🍲</span>
+      <div class="step-title">Simmer 12 Jam</div>
+      <div class="step-desc">Tulang ayam pilihan, cengkeh, pekak, dan jahe segar — disimmer api kecil 12 jam tanpa henti. Rasa tidak bisa dipercepat.</div>
+      <div class="step-bar"></div>
     </div>
-    
-    <div class="process-card">
-      <div class="process-num">iii.</div>
-      <h3>Sajikan Hangat</h3>
-      <p>Mie dimasak per pesanan, ditiriskan, dan disajikan dalam waktu kurang dari tiga menit. Hangat, segar, dan siap dinikmati di mangkuk porselen pilihan.</p>
+    <div class="step">
+      <div class="step-n">iii.</div>
+      <span class="step-ico">🥢</span>
+      <div class="step-title">Sajikan Per Pesanan</div>
+      <div class="step-desc">Mie dimasak tepat saat Anda memesan. Tidak ada mie yang dibiarkan duduk lama. Dalam 3 menit, hangat di meja Anda.</div>
+      <div class="step-bar"></div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="contact">
-  <h2>Mampir, <em>cobain sendiri</em>.</h2>
-  <p class="cta-sub">Buka setiap hari, 10 pagi sampai 10 malam. Walk-in welcome, reservasi diutamakan untuk grup di atas 6 orang.</p>
-  <a href="https://wa.me/6281515415252" class="btn-primary"><span>Reservasi via WhatsApp</span></a>
+<!-- REVIEWS -->
+<section class="reviews sr" id="ulasan">
+  <div class="reviews-header">
+    <div class="star-row">
+      <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      <span class="star">★</span><span class="star">★</span>
+    </div>
+    <div class="reviews-avg">4.9</div>
+    <div class="reviews-cnt">dari 1.200+ ulasan pelanggan setia</div>
+    <div class="why-label" style="justify-content:center;margin-bottom:0">Kata Mereka</div>
+    <h2 class="why-h2" style="text-align:center">Bukan kami yang bicara —<br><em>mereka yang membuktikan.</em></h2>
+  </div>
+
+  <div class="reviews-grid">
+
+    <div class="rev-card">
+      <div class="rev-platform">Google Maps</div>
+      <div class="rev-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="rev-text">"Ini bakmi terenak yang pernah gue makan di Jakarta. Kuahnya dalem banget, beda sama bakmi biasa. Kaldu beneran kerasa tulangnya, bukan dari bubuk. Wajib coba pangsit gorengnya juga!"</p>
+      <div class="rev-author">
+        <div class="rev-avatar">R</div>
+        <div>
+          <div class="rev-name">Rizky Aditya</div>
+          <div class="rev-meta">Pelanggan Tetap · Jakarta Selatan</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev-card">
+      <div class="rev-platform">Google Maps</div>
+      <div class="rev-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="rev-text">"Pertama kali kesini diajak teman, langsung jatuh cinta. Mienya kenyal banget, pasti tarik tangan. Cha siu-nya manis gurih sempurna. Sekarang tiap bulan pasti balik kesini."</p>
+      <div class="rev-author">
+        <div class="rev-avatar">S</div>
+        <div>
+          <div class="rev-name">Sinta Maharani</div>
+          <div class="rev-meta">Food Blogger · Tangerang</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev-card">
+      <div class="rev-platform">TripAdvisor</div>
+      <div class="rev-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="rev-text">"Bawa orang tua ke sini, mereka langsung bilang 'ini mirip bakmi zaman dulu yang udah susah dicari.' Rasanya memang otentik, tidak ada yang dipalsukan. Porsinya juga generous."</p>
+      <div class="rev-author">
+        <div class="rev-avatar">D</div>
+        <div>
+          <div class="rev-name">Denny Wijaya</div>
+          <div class="rev-meta">Kunjungan Keluarga · Bekasi</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev-card">
+      <div class="rev-platform">Instagram</div>
+      <div class="rev-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="rev-text">"Udah nyoba hampir semua bakmi di Jakarta, dan Koh Abeng ini masuk top 3 favorit saya. Yang bikin beda itu kaldunya — jernih tapi kaya rasa. Vegetarian option-nya juga enak banget, nggak kalah sama yang pakai daging."</p>
+      <div class="rev-author">
+        <div class="rev-avatar">A</div>
+        <div>
+          <div class="rev-name">Anisa Putri</div>
+          <div class="rev-meta">Food Enthusiast · Jakarta Barat</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev-card">
+      <div class="rev-platform">Google Maps</div>
+      <div class="rev-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="rev-text">"Tempatnya bersih, pelayanan ramah, dan yang penting makanannya konsisten enak setiap kunjungan. Sudah hampir 5 tahun jadi langganan dan tidak pernah kecewa sekali pun."</p>
+      <div class="rev-author">
+        <div class="rev-avatar">H</div>
+        <div>
+          <div class="rev-name">Hendra Santoso</div>
+          <div class="rev-meta">Pelanggan 5 Tahun · Glodok</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+<!-- CTA / LOKASI -->
+<div class="cta-sec sr" id="lokasi">
+  <div class="cta-deco">Abeng</div>
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Mampir Sekarang</div>
+    <h2 class="cta-h2">Satu mangkuk cukup<br>untuk <em>jatuh hati.</em></h2>
+    <p class="cta-sub">Buka setiap hari. Walk-in welcome. Reservasi diutamakan untuk grup lebih dari 6 orang. Kami tunggu Anda.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/6281515415252" class="btn btn-gold">Reservasi via WhatsApp →</a>
+      <a href="https://maps.google.com" class="btn btn-outline" style="color:rgba(248,243,232,.6);border-color:rgba(248,243,232,.2)">Lihat di Google Maps</a>
+    </div>
+    <div class="cta-info">
+      <div class="cta-info-item">📍 <b>Jl. Muwardi No. 126, Grogol</b></div>
+      <div class="cta-dot"></div>
+      <div class="cta-info-item">⏰ <b>10:00 – 22:00</b> setiap hari</div>
+      <div class="cta-dot"></div>
+      <div class="cta-info-item">📞 <b>+62 815-1541-5252</b></div>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="logo">
-        <span class="logo-mark">A</span>
-        <span>Bakmi Abeng</span>
-      </div>
-      <p>Semangkuk mie tarik tangan dengan resep warisan keluarga sejak 1962. Sajian otentik, dibuat dengan hati.</p>
+    <div>
+      <div class="footer-logo">Bakmi <b>Koh</b> Abeng</div>
+      <p class="footer-tagline">Semangkuk mie tarik tangan dengan resep warisan keluarga sejak 1962. Dimasak dengan sabar, disajikan dengan bangga, tiga generasi tanpa henti.</p>
     </div>
-    
     <div class="footer-col">
-      <h4>Lokasi</h4>
+      <h5>Lokasi</h5>
       <ul>
-        <li>Jl. Pancoran No. 62</li>
-        <li>Glodok, Jakarta Barat</li>
-        <li>11120</li>
+        <li>Jl. Muwardi No. 126</li>
+        <li>Grogol, Jakarta Barat</li>
+        <li>11450</li>
       </ul>
     </div>
-    
     <div class="footer-col">
-      <h4>Jam Buka</h4>
+      <h5>Jam Buka</h5>
       <ul>
         <li>Senin – Jumat</li>
         <li>10:00 – 22:00</li>
@@ -1035,22 +1021,38 @@ footer {
         <li>09:00 – 23:00</li>
       </ul>
     </div>
-    
     <div class="footer-col">
-      <h4>Kontak</h4>
+      <h5>Kontak</h5>
       <ul>
-        <li><a href="tel:+6281234567890">+62 812-3456-7890</a></li>
-        <li><a href="mailto:halo@bakmiahong.com">halo@bakmiabeng.com</a></li>
-        <li><a href="#">@bakmiahong</a></li>
+        <li><a href="https://wa.me/6281515415252">+62 815-1541-5252</a></li>
+        <li>halo@bakmikohabeng.com</li>
+        <li>@bakmikohabeng</li>
       </ul>
     </div>
   </div>
-  
   <div class="footer-bottom">
-    <div>© 2026 Bakmi Abeng · All rights reserved</div>
-    <div>bakmi abeng</div>
+    <span>© 2026 Bakmi Koh Abeng · All rights reserved</span>
+    <em>Resep warisan, rasa sepanjang masa.</em>
   </div>
 </footer>
 
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Scroll reveal
+const srs = document.querySelectorAll('.sr');
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), i * 60);
+    }
+  });
+}, { threshold: 0.08 });
+srs.forEach(el => io.observe(el));
+</script>
 </body>
 </html>
