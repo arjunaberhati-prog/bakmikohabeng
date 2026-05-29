@@ -664,6 +664,33 @@ footer {
   .cta-sec { padding: 4rem 5vw; }
   .cta-info { gap: 1.5rem; }
 }
+/* Payment methods */
+.pay-label {
+  font-size: .65rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted);
+  margin-top: 1.6rem; margin-bottom: .75rem;
+}
+.pay-methods {
+  display: flex; gap: .6rem; flex-wrap: wrap;
+}
+.pay-chip {
+  display: inline-flex; align-items: center; gap: .45rem;
+  background: var(--ivory);
+  border: 1px solid var(--ivory-3);
+  border-radius: 6px;
+  padding: .45rem .85rem;
+  color: var(--mid);
+  font-size: .78rem; font-weight: 500;
+  transition: all .25s;
+}
+.pay-chip:hover {
+  border-color: rgba(200,152,30,.45);
+  color: var(--mustard);
+  background: var(--mustard-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(200,152,30,.13);
+}
+
 </style>
 </head>
 <body>
